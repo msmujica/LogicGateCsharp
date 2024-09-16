@@ -3,6 +3,7 @@ namespace Gates;
 public interface IValorEntrada
 {
     
-    public bool Evaluar { get; }
+    public string name { get; }
+    public bool Calcular();
     
 }

@@ -2,26 +2,17 @@ namespace Gates;
 
 public class CompuertaNOT : IValorEntrada
 {
-    private IValorEntrada entrada;
-    private string name;
+    public string name { get; set; }
+    public bool entrada { get; set; }
 
-    public CompuertaNOT(string name, IValorEntrada entrada)
+    public CompuertaNOT(string nombre, bool entrada)
     {
-        this.Name = name;
+        this.name = nombre;
         this.entrada = entrada;
     }
 
-    public string Name
+    public bool Calcular()
     {
-        get { return name;}
-        set { name = value; }
-    }
-
-    public bool Evaluar
-    {
-        get
-        {
-            return !this.entrada.Evaluar;
-        }
+        return !this.entrada;
     }
 }
