@@ -21,5 +21,12 @@ namespace Gates
 
             return result;
         }
+
+        public void AddInput(IValorEntrada input)
+        {
+            this.inputs.Add(input);
+        }
+        
     }
+    
 }

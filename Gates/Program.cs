@@ -1,3 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+using Gates;
+
+bool a = true;
+bool b = false;
+bool c = true;
+
