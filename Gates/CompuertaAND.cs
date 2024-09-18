@@ -1,11 +1,11 @@
 namespace Gates;
 
-public class ANDGate : ITruthValue
+public class ANDGate : IValorEntrada
 {
-    private List<ITruthValue> inputs = new List<ITruthValue>();
+    private List<IValorEntrada> inputs = new List<IValorEntrada>();
     private string Name { get; set; }
 
-    public ANDGate(string name, ITruthValue firstInput)
+    public ANDGate(string name, IValorEntrada firstInput)
     {
         this.Name = name;
         this.inputs.Add(firstInput);

@@ -1,13 +1,13 @@
 namespace Gates;
 
-public class OrGate : ITruthValue 
+public class OrGate : IValorEntrada 
 {
     
-    private List<ITruthValue> inputs = new List<ITruthValue>();
+    private List<IValorEntrada> inputs = new List<IValorEntrada>();
     private string Name { get; set; }
         
 
-    public OrGate(string name, ITruthValue firstInput)
+    public OrGate(string name, IValorEntrada firstInput)
     {
         this.Name = name;
         this.inputs.Add(firstInput);
