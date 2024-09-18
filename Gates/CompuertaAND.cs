@@ -1,31 +1,25 @@
-namespace Gates;
-
-public class ANDGate : IValorEntrada
+namespace Gates
 {
-    private List<IValorEntrada> inputs = new List<IValorEntrada>();
-    private string Name { get; set; }
-
-    public ANDGate(string name, IValorEntrada firstInput)
+    public class CompuertaAND : IValorEntrada
     {
-        this.Name = name;
-        this.inputs.Add(firstInput);
-    }
+        private List<IValorEntrada> inputs = new List<IValorEntrada>();
+        public string name { get; set; }
 
-    public bool Evaluate
-    {
-        get
+        public CompuertaAND(string name, IValorEntrada firstInput)
         {
-            bool resultado = this.inputs[0].Evaluate;
+            this.name = name;
+            this.inputs.Add(firstInput);
+        }
+        
+        public bool Calcular()
+        {
+            bool result = this.inputs[0].Calcular();
             for (int i = 1; i < this.inputs.Count; i++)
             {
-                resultado = resultado && this.inputs[i].Evaluate;
+                result = result && this.inputs[i].Calcular();
             }
 
-            return resultado;
+            return result;
         }
-
-    
-        
-    
-    
     }
+}

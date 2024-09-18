@@ -1,31 +1,25 @@
-namespace Gates;
-
-public class OrGate : IValorEntrada 
+namespace Gates
 {
-    
-    private List<IValorEntrada> inputs = new List<IValorEntrada>();
-    private string Name { get; set; }
-        
-
-    public OrGate(string name, IValorEntrada firstInput)
+    public class CompuertaOR : IValorEntrada
     {
-        this.Name = name;
-        this.inputs.Add(firstInput);
-    }
+        private List<IValorEntrada> inputs = new List<IValorEntrada>();
+        public string name { get; set; }
 
-    public bool Evaluar
-    {
-        get
+        public CompuertaOR(string name, IValorEntrada firstInput)
         {
-            bool result = this.inputs[0].Evaluar;
+            this.name = name;
+            this.inputs.Add(firstInput);
+        }
+
+        public bool Calcular()
+        {
+            bool result = this.inputs[0].Calcular();
             for (int i = 1; i < this.inputs.Count; i++)
             {
-                result = result || this.inputs[i].Evaluar;
+                result = result || this.inputs[i].Calcular();
             }
 
             return result;
         }
-            
     }
-    
 }
