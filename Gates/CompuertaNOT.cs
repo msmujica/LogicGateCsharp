@@ -3,16 +3,16 @@ namespace Gates;
 public class CompuertaNOT : IValorEntrada
 {
     public string name { get; set; }
-    public bool entrada { get; set; }
+    private IValorEntrada input;
+    public CompuertaNOT(string nombre, IValorEntrada input)
 
-    public CompuertaNOT(string nombre, bool entrada)
-    {
+{
         this.name = nombre;
-        this.entrada = entrada;
+        this.input = input;
     }
 
     public bool Calcular()
     {
-        return !this.entrada;
+        return !this.input.Calcular();
     }
 }
