@@ -1,25 +1,30 @@
-namespace Gates
+namespace Gates;
+
+public class CompuertaAND : IValorEntrada
 {
-    public class CompuertaAND : IValorEntrada
+    public string name { get; }
+    public List<bool> entradas = new List<bool>();
+
+
+    public CompuertaAND(string nombre)
     {
-        private List<IValorEntrada> inputs = new List<IValorEntrada>();
-        public string name { get; set; }
+        this.name = nombre;
+    }
+    
+    public void agregarEntrada(bool entrada)
+    {
+        entradas.Add(entrada);
+    }
 
-        public CompuertaAND(string name, IValorEntrada firstInput)
+    public bool Calcular()
+    {
+        foreach (var e in entradas)
         {
-            this.name = name;
-            this.inputs.Add(firstInput);
-        }
-        
-        public bool Calcular()
-        {
-            bool result = this.inputs[0].Calcular();
-            for (int i = 1; i < this.inputs.Count; i++)
+            if (e == false)
             {
-                result = result && this.inputs[i].Calcular();
+                return false;
             }
-
-            return result;
         }
+        return true;
     }
 }
